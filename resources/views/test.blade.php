@@ -6,7 +6,7 @@
     <title>School Management System - Test</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/theme.js', 'resources/js/dashboard.js'])
 </head>
 <body class="h-full bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -25,10 +25,10 @@
                 </p>
             </div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div class="card card-hover p-8">
                 <div class="space-y-4">
-                    <button id="theme-toggle" class="w-full btn btn-primary">
-                        <span id="theme-icon" class="mr-2"></span>
+                    <button data-theme-toggle class="w-full btn btn-primary">
+                        <span data-theme-icon class="mr-2"></span>
                         Toggle Theme
                     </button>
                     
@@ -42,6 +42,49 @@
                     <div class="grid grid-cols-2 gap-4">
                         <a href="/dashboard/parent" class="btn btn-primary">Parent Dashboard</a>
                         <a href="/dashboard/guardian" class="btn btn-secondary">Guardian Dashboard</a>
+                    </div>
+                    
+                    <!-- ES6 Feature Demos -->
+                    <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                        <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">ES6 Features Demo:</h3>
+                        
+                        <!-- Notification System -->
+                        <div class="mb-4">
+                            <h4 class="text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">Notification System:</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="window.notificationSystem?.show('Success notification!', {type: 'success'})" class="btn btn-sm btn-success">
+                                    Success
+                                </button>
+                                <button onclick="window.notificationSystem?.show('Error notification!', {type: 'error'})" class="btn btn-sm btn-danger">
+                                    Error
+                                </button>
+                                <button onclick="window.notificationSystem?.show('Warning notification!', {type: 'warning'})" class="btn btn-sm btn-warning">
+                                    Warning
+                                </button>
+                                <button onclick="window.notificationSystem?.show('Info with actions!', {type: 'info', persistent: true, actions: [{label: 'Action', handler: 'alert(\"Action clicked!\")'}]})" class="btn btn-sm btn-primary">
+                                    Persistent
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Tracker -->
+                        <div class="mb-4">
+                            <h4 class="text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">Progress Tracker:</h4>
+                            <div data-progress-tracker data-progress="75" data-label="Learning Progress" data-color="green"></div>
+                        </div>
+
+                        <!-- Interactive Elements -->
+                        <div>
+                            <h4 class="text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">Interactive Elements:</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="this.classList.add('animate-pulse-glow'); setTimeout(() => this.classList.remove('animate-pulse-glow'), 2000)" class="btn btn-sm btn-secondary">
+                                    Pulse Effect
+                                </button>
+                                <button onclick="const stats = document.querySelector('[data-stat=&quot;students&quot;]'); if(stats) { const newVal = Math.floor(Math.random() * 2000) + 1000; stats.textContent = newVal; }" class="btn btn-sm btn-primary">
+                                    Update Stats
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

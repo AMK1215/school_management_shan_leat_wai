@@ -12,27 +12,27 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/theme.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/theme.js', 'resources/js/dashboard.js'])
 </head>
 <body class="h-full bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="min-h-full">
         <!-- Mobile menu button -->
-        <div class="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div class="lg:hidden fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200/60 dark:border-slate-700/60">
             <div class="flex items-center justify-between px-4 py-3">
-                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <button data-mobile-menu-toggle class="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors duration-200">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                <h1 class="text-lg font-semibold text-gray-900 dark:text-white">@yield('page-title', 'Dashboard')</h1>
-                <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                    <span id="theme-icon"></span>
+                <h1 class="text-lg font-semibold text-slate-900 dark:text-white">@yield('page-title', 'Dashboard')</h1>
+                <button data-theme-toggle class="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-all duration-200 hover:scale-110">
+                    <span data-theme-icon></span>
                 </button>
             </div>
         </div>
 
         <!-- Sidebar -->
-        <div id="mobile-menu" class="sidebar sidebar-mobile lg:translate-x-0 z-40">
+        <div data-mobile-menu class="sidebar sidebar-mobile lg:translate-x-0 z-40">
             <div class="flex flex-col h-full">
                 <!-- Logo -->
                 <div class="flex items-center justify-center h-16 px-4 border-b border-gray-200 dark:border-gray-700">
@@ -82,8 +82,8 @@
                     </div>
                     <div class="flex items-center space-x-4">
                         <!-- Theme toggle -->
-                        <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                            <span id="theme-icon"></span>
+                        <button data-theme-toggle class="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-all duration-200 hover:scale-110">
+                            <span data-theme-icon></span>
                         </button>
                         
                         <!-- Notifications -->
