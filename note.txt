@@ -1,0 +1,1 @@
+npm install -D @tailwindcss/cli@next @tailwindcss/vite@next --legacy-peer-deps
